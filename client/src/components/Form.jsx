@@ -21,7 +21,7 @@ class Form extends React.Component {
     // this.setState({name: event.target.value});
   }
   handleSubmit(event) {
-    // this.state.name is the way to access latest value from state bc bc our state already changed after we click onSubmit
+    // this.state.name is the way to access latest value from state bc our state already changed after we click onSubmit
     // {alert("new grocery item is: " + this.state.name)}
     this.setState({
       name: event.target.value,

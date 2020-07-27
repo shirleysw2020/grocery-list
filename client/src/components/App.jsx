@@ -29,11 +29,9 @@ class App extends React.Component {
     return (
       <div>
           <Header />
-          {/* <Form handler={this.handler.bind(this)}/> */}
           <Form handler={this.handler}/>
-          {/* this is like invoking List w groceries arg */}
+          {/* think invoking List w groceries arg */}
           <List groceries={this.state.groceries}/>
-          {/* <List /> */}
       </div>
     )
   }
