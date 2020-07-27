@@ -3,6 +3,17 @@ import Header from './Header.jsx';
 import List from './List.jsx';
 import Form from './Form.jsx';
 import IntialGroceries from './GroceryList.jsx'
+import axios from 'axios';
+const ENDPOINT = './groceries';
+
+// request = {
+//   axios: (callback) => {
+//     axios.get(ENDPOINT),
+//     context: this,
+//     success: callback(data),
+//     error: console.log(err);
+//   }
+// }
 
 class App extends React.Component {
   constructor(props) {
