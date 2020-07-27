@@ -1,5 +1,4 @@
 import React from 'react';
-import groceries from './GroceryList.jsx'
 
 // controlled form component USE THIS
   // must have state & fields in form
@@ -22,16 +21,17 @@ class Form extends React.Component {
     // this.setState({name: event.target.value});
   }
   handleSubmit(event) {
-    // this.state.name because our state was already chenged after we click on submit, we go to state to get the value.
-    {alert("new grocery item is: " + this.state.name)}
-    // put this.state.name (user input) into list, so need to pass to list.
-
-
+    // this.state.name is the way to access latest value from state bc bc our state already changed after we click onSubmit
+    // {alert("new grocery item is: " + this.state.name)}
+    this.setState({
+      name: event.target.value,
+      quantity: event.target.value
+    })
   }
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.props.handler}>
         <label> Item
             <input name="name" value={this.state.name} onChange={this.handleChange}/>
         </label>
@@ -39,7 +39,7 @@ class Form extends React.Component {
             {/* attach value to state */}
             <input name="quantity" value={this.state.quantity} onChange={this.handleChange}/>
         </label>
-        <button onClick={this.handleSubmit}>Add Grocery</button>
+        <button>Add Grocery</button>
       </form>
     );
   }
