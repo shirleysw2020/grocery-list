@@ -37,8 +37,6 @@ class Form extends React.Component {
   }
 }
 
-
-
 // Makes the form constructor available through import statements in other files
 export default Form;
 
