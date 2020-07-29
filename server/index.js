@@ -37,7 +37,7 @@ app.get('/groceries',(req, res) => {
 })
 
 app.post('/groceries', (req, res) => {
-  console.log(req.body);
+  console.log('whats req.body?', req.body);
   if (Object.keys(req.body).length === 0) {
     res.status(400).send('You forgot your groceries!');
   }
@@ -45,8 +45,8 @@ app.post('/groceries', (req, res) => {
     if (err) {
       res.status(500).send(err);
     } else {
-      // console.log(results);
-      res.status(201).send();
+      console.log('whats result', results);
+      res.status(201).send(req.body);
     }
   })
 })

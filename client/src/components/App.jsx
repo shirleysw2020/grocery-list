@@ -30,19 +30,20 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getGroceries(this.setGroceries);
-    // this.getGroceries((res) => {
-    //   this.setState({groceries: res.data})
-    // })
+    // this.getGroceries(this.setGroceries);
+    this.getGroceries((res) => {
+      this.setState({groceries: res.data})
+    })
   }
   // this captures the form data
   addGrocery(grocery) {
     // Capture the submitted form data & make post request to /groceries
     axios.post(ENDPOINT, grocery)
-    .then((grocery) => {
-      console.log('server got your post req!')
-      this.setState({groceries: [...this.state.groceries, grocery]})
-      })
+    .then((resp) => {
+      console.log('server got your post req!', resp.data);
+      this.setState({groceries: [...this.state.groceries, resp.data]});
+      console.log('did i successfully set state?', this.state);
+    })
     .catch()
   }
 
