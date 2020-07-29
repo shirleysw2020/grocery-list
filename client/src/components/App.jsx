@@ -16,15 +16,14 @@ class App extends React.Component {
   }
 // when page first load, axios make get request to fetch all data to client on the page。 get latest data
   getGroceries(cb) {
-    axios.get(ENDPOINT)
-    // an response object
+    axios.get(ENDPOINT) // an response object
     .then(cb)
-    .catch(() => {
-      console.log('failed to get data...')
+    .catch((err) => {
+      console.log(err)
     })
   }
 
-  // groceries is the response we get from making axios get request
+  // groceries is resp we get from making axios get-req
   setGroceries(groceries) {
     this.setState({groceries: groceries.data})
   }
@@ -36,7 +35,15 @@ class App extends React.Component {
   addGrocery(grocery) {
     //Capture the submitted form data
     // this.setState({groceries: [...this.state.groceries, grocery]})
-    // make post request
+    // make post request to /groceries
+    axios.post(ENDPOINT)
+    .then(() => {
+      this.setState({groceries: [...this.state.groceries, grocery]})
+      })
+    // () => {
+    //   this.getGroceries(this.setGroceries);
+    // })
+    .catch()
   }
 
   render() {

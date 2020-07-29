@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const model = require('../db/model.js');
-// a framework to define server
 const path = require('path');
 const PORT = 3000;
 
@@ -24,7 +23,6 @@ app.use(testFn);
 // give access to dir to client
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-
 app.get('/groceries',(req, res) => {
   // try making get request in postman to groceries endpoint, u'll get database for groceries
   // talk to our database to get all groceries
@@ -36,16 +34,16 @@ app.get('/groceries',(req, res) => {
       res.status(200).send(results);
     }
   })
-  // res.status(200).send(groceries);
 })
 
 app.post('/groceries', (req, res) => {
   // console.log(res.body, 'what are they')
-  model.insertGrocery((err) => {
+  model.insertGrocery(req.body, (err, results) => {
     if (err) {
-      console.log(err);
+      res.status(500).send(err);
     } else {
-      res.status(201).send()
+      console.log(results);
+      res.status(201).send();
     }
   })
 })

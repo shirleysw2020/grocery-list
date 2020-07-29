@@ -9,7 +9,7 @@ var connection = sql.createConnection({
 
 connection.connect((err) => {
   if (err) {
-    console.log(err);
+    console.log(err, 'admin, you\'re not connecting to database ');
   } else {
     console.log('Connected to DB');
   }

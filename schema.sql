@@ -2,14 +2,18 @@
  *    sqlite3 items.db < schema.sql
  *  to create the database and the tables.*/
 
-Drop database if exists
-create database groceries
-use groceries
+Drop database if exists grocery_list;
+-- create and use database
+CREATE DATABASE groceries;
+USE grocery_list;
 
 CREATE TABLE groceries (
-  Name varchar(50),
-  Quantity INT
+  name varchar(50),
+  quantity INT
 );
 
--- INSERT INTO groeries ()
--- VALUES()
+INSERT INTO groceries (name, quantity) VALUES ('coffee', 1);
+INSERT INTO groceries (name, quantity) VALUES ('chocolate', 3);
+INSERT INTO groceries (name, quantity) VALUES ('steak', 1);
+INSERT INTO groceries (name, quantity) VALUES ('cereal', 2);
+INSERT INTO groceries (name, quantity) VALUES ('paper towels', 2);
