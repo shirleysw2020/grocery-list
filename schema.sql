@@ -1,10 +1,10 @@
 /*  Execute this file from the command line by typing:
- *    sqlite3 items.db < schema.sql
+ *    mysql -u root < schema.sql
  *  to create the database and the tables.*/
 
 Drop database if exists grocery_list;
 -- create and use database
-CREATE DATABASE groceries;
+CREATE DATABASE grocery_list;
 USE grocery_list;
 
 CREATE TABLE groceries (

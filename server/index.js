@@ -28,7 +28,7 @@ app.get('/groceries',(req, res) => {
   // talk to our database to get all groceries
   model.getAllGroceries((err,results) => {
     if (err) {
-      console.log(err)
+      console.log('cannot fetch...', err)
     } else {
       // data we grabbed from db
       res.status(200).send(results);
@@ -37,12 +37,15 @@ app.get('/groceries',(req, res) => {
 })
 
 app.post('/groceries', (req, res) => {
-  // console.log(res.body, 'what are they')
+  console.log(req.body);
+  if (Object.keys(req.body).length === 0) {
+    res.status(400).send('You forgot your groceries!');
+  }
   model.insertGrocery(req.body, (err, results) => {
     if (err) {
       res.status(500).send(err);
     } else {
-      console.log(results);
+      // console.log(results);
       res.status(201).send();
     }
   })

@@ -10,17 +10,17 @@ module.exports = {
         callback(err, null);
       } else {
         // can see log in terminal server
-        console.log('Results is: ', results, 'Fields is: ', fields);
+        // console.log('getAllGroceries result is: ', results);
         callback(null, results);
       }
     });
   },
 
   insertGrocery: (grocery, callback) => {
-    // don't need ; at end of query
+    // dont need ; at end of query
     db.query(`insert into groceries (name, quantity) values ("${grocery.name}", "${grocery.quantity}")`, (err, results) => {
       if (err) {
-        callback(err);
+        callback(err, null);
       } else {
         callback(null, results)
       }
